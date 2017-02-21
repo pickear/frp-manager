@@ -1,0 +1,34 @@
+###jetty
+server:
+   port: 8086
+   contextPath: /refer
+
+jasypt:
+  encryptor:
+    password: 666
+
+spring:
+   velocity:
+     resourceLoaderPath: classpath:/templates/
+     prefix:
+     suffix: .vm
+     cache: false
+     check-template-location: true
+     content-type: text/html
+     charset: UTF-8
+     properties:
+        input.encoding: UTF-8
+        output.encoding: UTF-8
+   http:
+     encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+   profiles:
+     active: ${runtime.env}
+
+
+mybatis:
+  #  type-aliases-package: com.weasel.frp.domain.device
+    mapper-locations: classpath:mybatis/mappers/*.xml
+    config-location: classpath:mybatis/mybatis-config.xml
